@@ -30,8 +30,8 @@ data "aws_iam_policy_document" "s3_access" {
     ]
 
     resources = [
-      data.aws_s3_bucket.architek_test_lake.arn,
-      "${data.aws_s3_bucket.architek_test_lake.arn}/sftp-clients/*"
+      data.aws_s3_bucket.architek_lab_sftp_downloads.arn,
+      "${data.aws_s3_bucket.architek_lab_sftp_downloads.arn}/sftp-clients/*"
     ]
   }
 
