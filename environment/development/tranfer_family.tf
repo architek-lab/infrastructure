@@ -37,13 +37,13 @@ resource "aws_transfer_user" "nordtextil" {
   user_name  = "nordtextil"
   role       = aws_iam_role.transfer_family_role.arn
   depends_on = [aws_iam_role_policy.sftp_policy]
-  
+
   home_directory_type = "LOGICAL"
   home_directory_mappings {
     entry  = "/"
     target = "/${data.aws_s3_bucket.architek_lab_sftp_downloads.id}/sftp-clients"
- 
 
+  }
 }
 
 resource "aws_transfer_ssh_key" "nordtextil" {
