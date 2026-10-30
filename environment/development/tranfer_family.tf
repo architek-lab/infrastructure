@@ -1,13 +1,13 @@
 
-# resource "aws_eip" "sftp_public_subnet_a" {
-#   domain = "vpc"
-#   tags   = local.common_tags
-# }
+resource "aws_eip" "sftp_public_subnet_a" {
+  domain = "vpc"
+  tags   = local.common_tags
+}
 
-# resource "aws_eip" "sftp_public_subnet_b" {
-#   domain = "vpc"
-#   tags   = local.common_tags
-# }
+resource "aws_eip" "sftp_public_subnet_b" {
+  domain = "vpc"
+  tags   = local.common_tags
+}
 
 
 # # TRANSFER FAMILY SERVER
