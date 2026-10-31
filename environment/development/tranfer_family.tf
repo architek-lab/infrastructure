@@ -10,25 +10,25 @@ resource "aws_eip" "sftp_public_subnet_b" {
 }
 
 
-# # TRANSFER FAMILY SERVER
-# resource "aws_transfer_server" "architek_sftp" {
-#   endpoint_type = "VPC"
+# TRANSFER FAMILY SERVER
+resource "aws_transfer_server" "architek_sftp" {
+  endpoint_type = "VPC"
 
 
-#   endpoint_details {
-#     address_allocation_ids = [aws_eip.sftp_public_subnet_a.id, aws_eip.sftp_public_subnet_b.id]
-#     vpc_id                 = aws_vpc.architek_vpc.id
-#     subnet_ids             = [aws_subnet.public_subnet_a.id, aws_subnet.public_subnet_b.id]
-#     security_group_ids     = [aws_security_group.sftp_sg.id]
+  endpoint_details {
+    address_allocation_ids = [aws_eip.sftp_public_subnet_a.id, aws_eip.sftp_public_subnet_b.id]
+    vpc_id                 = aws_vpc.architek_vpc.id
+    subnet_ids             = [aws_subnet.public_subnet_a.id, aws_subnet.public_subnet_b.id]
+    security_group_ids     = [aws_security_group.sftp_sg.id]
 
-#   }
+  }
 
-#   protocols = ["SFTP"]
+  protocols = ["SFTP"]
 
-#   tags = merge(local.common_tags,
-#     { Name = "architek-sftp" }
-#   )
-# }
+  tags = merge(local.common_tags,
+    { Name = "architek-sftp" }
+  )
+}
 
 
 # # TRANSFER FAMILY USER
