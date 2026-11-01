@@ -31,20 +31,20 @@ resource "aws_transfer_server" "architek_sftp" {
 }
 
 
-# # TRANSFER FAMILY USER
-# resource "aws_transfer_user" "nordtextil" {
-#   server_id  = aws_transfer_server.architek_sftp.id
-#   user_name  = "nordtextil"
-#   role       = aws_iam_role.transfer_family_role.arn
-#   depends_on = [aws_iam_role_policy.sftp_policy]
+# TRANSFER FAMILY USER
+resource "aws_transfer_user" "nordtextil" {
+  server_id  = aws_transfer_server.architek_sftp.id
+  user_name  = "nordtextil"
+  role       = aws_iam_role.transfer_family_role.arn
+  depends_on = [aws_iam_role_policy.sftp_policy]
 
-#   home_directory_type = "LOGICAL"
-#   home_directory_mappings {
-#     entry  = "/"
-#     target = "/${data.aws_s3_bucket.architek_lab_sftp_downloads.id}/sftp-clients"
+  home_directory_type = "LOGICAL"
+  home_directory_mappings {
+    entry  = "/"
+    target = "/${data.aws_s3_bucket.architek_lab_sftp_downloads.id}/sftp-clients"
 
-#   }
-# }
+  }
+}
 
 # resource "aws_transfer_ssh_key" "nordtextil" {
 #   server_id = aws_transfer_server.architek_sftp.id
