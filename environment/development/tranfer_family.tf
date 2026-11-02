@@ -46,13 +46,13 @@ resource "aws_transfer_user" "nordtextil" {
   }
 }
 
-# resource "aws_transfer_ssh_key" "nordtextil" {
-#   server_id = aws_transfer_server.architek_sftp.id
-#   user_name = aws_transfer_user.nordtextil.user_name
-#   body      = trimspace("ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJHzXuOxuUkJ6c5ux/Ty0gEcmlWY0ZMOqqV/Bfvg6pcs taofeecoh@taofeecoh")
-# }
+resource "aws_transfer_ssh_key" "nordtextil" {
+  server_id = aws_transfer_server.architek_sftp.id
+  user_name = aws_transfer_user.nordtextil.user_name
+  body      = trimspace("ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJHzXuOxuUkJ6c5ux/Ty0gEcmlWY0ZMOqqV/Bfvg6pcs taofeecoh@taofeecoh")
+}
 
-# output "sftp_endpoint" {
-#   value       = aws_transfer_server.architek_sftp.endpoint
-#   description = "The public endpoint URL of your production SFTP server"
-# }
+output "sftp_endpoint" {
+  value       = aws_transfer_server.architek_sftp.endpoint
+  description = "The public endpoint URL of your production SFTP server"
+}
