@@ -14,15 +14,6 @@ output "public_subnet_b_id" {
 }
 
 
-output "bucket_id" {
+output "sftp_bucket_id" {
   value = data.aws_s3_bucket.architek_lab_sftp_downloads.id
 }
-
-output "server_ip" {
-  value = aws_instance.architek_server.public_ip
-}
-
-output "server_dns" {
-  value = aws_instance.architek_server.public_dns
-}
-
